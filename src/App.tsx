@@ -597,18 +597,17 @@ function SettingsModal({ onClear, onWipe, onClose }: { onClear: () => void; onWi
 
 function greeting() { const hour = new Date().getHours(); return hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening'; }
 
-// SAFE FALLBACK DATE FORMATTING
 function formatDate(value: string) { 
   if (!value) return ''; 
   const d = new Date(value);
-  if (isNaN(d.getTime())) return value; // Return as-is if corrupted
+  if (isNaN(d.getTime())) return value; 
   return new Intl.DateTimeFormat(undefined, { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' }).format(d); 
 }
 
 function timeLabel(value: string) { 
   if (!value) return ''; 
   const d = new Date(value);
-  if (isNaN(d.getTime())) return ''; // Empty string if corrupted
+  if (isNaN(d.getTime())) return ''; 
 
   const difference = d.getTime() - new Date().getTime(); 
   const hours = Math.round(difference / (1000 * 3600)); 

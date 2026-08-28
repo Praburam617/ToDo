@@ -68,7 +68,8 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator { filter: invert
 .search-box input { color: #fff !important; background: transparent !important; border: 0 !important; outline: 0 !important; width: 100%; font-size: 14.5px; padding: 0 !important; box-shadow: none !important;}
 .search-box input::placeholder { color: #6f7181; }
 
-.filter-row { display: flex; align-items: center; gap: 10px; overflow-x: auto; scrollbar-width: none; margin: 30px 0 20px; padding-bottom: 5px; }
+/* BUTTON CLIPPING FIX FOR FILTER ROW */
+.filter-row { display: flex; align-items: center; gap: 10px; overflow-x: auto; scrollbar-width: none; margin: 25px -8px 15px; padding: 8px 8px 15px 8px; }
 .filter-row::-webkit-scrollbar { display: none; }
 .filter-row button { flex-shrink: 0; border: 1px solid rgba(255,255,255,.08); background: rgba(255,255,255,.03); color: #9496a7; border-radius: 30px; padding: 10px 16px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all .3s cubic-bezier(0.2,0.8,0.2,1); }
 .filter-row button.active { color: #fff; border-color: rgba(180,44,255,.5); background: rgba(180,44,255,.2); box-shadow: 0 4px 15px rgba(180,44,255,0.2); transform: translateY(-2px); }
