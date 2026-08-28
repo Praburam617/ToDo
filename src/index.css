@@ -167,20 +167,33 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator { filter: invert
 .form-error { color: #ff6b6b; font-size: 13px; text-align: center; margin: 0; background: rgba(255,107,107,0.1); padding: 10px; border-radius: 8px;}
 .form-success { color: #54df70; font-size: 13px; text-align: center; margin: 0; background: rgba(84,223,112,0.1); padding: 10px; border-radius: 8px;}
 
-/* Onboarding Extra Styles */
-.checklist-box { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px; transform: translateZ(20px);}
-.checklist-item { display: flex; align-items: center; gap: 12px; font-size: 15px; color: #fff; transition: all 0.3s ease; }
-.checklist-item.done span { text-decoration: line-through; color: #858798; }
-.check-dot { width: 22px; height: 22px; border-radius: 50%; border: 2px solid #686a7b; display: grid; place-items: center; color: transparent; transition: all 0.3s ease; }
-.check-dot.checked { background: #b42cff; border-color: #b42cff; color: #fff; box-shadow: 0 0 10px #b42cff; }
+/* =========================================
+   WIZARD / ONBOARDING PREMIUM UI (NEW)
+========================================= */
+.wizard-card { position: relative; width: min(440px, 100%); padding: 40px 35px; background: linear-gradient(165deg, rgba(30,31,45,0.95), rgba(15,16,25,0.98)); border: 1px solid rgba(180,44,255,0.2); border-radius: 32px; box-shadow: 0 20px 50px rgba(0,0,0,0.6), 0 0 40px rgba(180,44,255,0.1), inset 0 2px 4px rgba(255,255,255,0.05); text-align: center; overflow: hidden; transform-style: preserve-3d; }
+.wizard-card::before { content: ''; position: absolute; top: -30%; left: -30%; width: 160%; height: 160%; background: radial-gradient(circle, rgba(180,44,255,0.08) 0%, transparent 60%); pointer-events: none; z-index: 0; }
+.wizard-content { position: relative; z-index: 1; transform: translateZ(20px); }
+.wizard-title { font: 700 30px 'Space Grotesk'; background: linear-gradient(to right, #ffffff, #dca2ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; text-shadow: 0 4px 15px rgba(180,44,255,0.2); }
+.wizard-subtitle { color: #9496a7; font-size: 15px; margin-bottom: 30px; }
 
-.select-card { display: flex; align-items: center; gap: 16px; padding: 16px 20px; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; background: rgba(0,0,0,0.2); margin-bottom: 12px; cursor: pointer; transition: all 0.2s ease; text-align: left; transform: translateZ(20px);}
-.select-card:hover { background: rgba(255,255,255,0.05); transform: translateY(-2px) translateZ(25px); }
-.select-card.selected { border-color: #b42cff; background: rgba(180,44,255,0.15); box-shadow: 0 5px 15px rgba(180,44,255,0.2); }
-.select-card-icon { width: 44px; height: 44px; border-radius: 12px; background: rgba(0,0,0,0.3); display: grid; place-items: center; font-size: 20px; flex-shrink: 0; }
-.select-card strong { display: block; font-size: 15px; color: #fff; margin-bottom: 4px; }
-.select-card p { font-size: 13px; color: #858798; margin: 0; }
-.option-badge { width: 28px; height: 28px; border-radius: 8px; background: rgba(255,255,255,0.1); display: grid; place-items: center; font-size: 13px; font-weight: 700; color: #fff; }
+.wizard-checklist { background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.05); border-radius: 24px; padding: 25px 20px; box-shadow: inset 0 5px 20px rgba(0,0,0,0.4); display: flex; flex-direction: column; gap: 16px; margin-bottom: 25px; }
+.wizard-check-item { display: flex; align-items: center; gap: 14px; font-size: 15px; color: #fff; text-align: left; transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); opacity: 0; transform: translateX(-15px); }
+.wizard-check-item.active { opacity: 1; transform: translateX(0); }
+.wizard-check-item.done { opacity: 0.4; transform: translateX(0); }
+.wizard-check-item.done .text { text-decoration: line-through; color: #6f7181; }
+
+.wizard-select-card { display: flex; align-items: center; gap: 16px; padding: 18px 20px; background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(0,0,0,0.2)); border: 1px solid rgba(255,255,255,0.05); border-radius: 18px; margin-bottom: 14px; cursor: pointer; text-align: left; transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+.wizard-select-card:hover { transform: translateY(-4px) scale(1.02); background: linear-gradient(145deg, rgba(180,44,255,0.1), rgba(0,0,0,0.3)); border-color: rgba(180,44,255,0.4); box-shadow: 0 12px 25px rgba(0,0,0,0.4), 0 0 20px rgba(180,44,255,0.2); }
+.wizard-select-card.selected { border-color: #b42cff; background: rgba(180,44,255,0.15); box-shadow: 0 10px 30px rgba(180,44,255,0.3), inset 0 2px 5px rgba(255,255,255,0.1); }
+.wizard-icon-box { width: 46px; height: 46px; border-radius: 14px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05); display: grid; place-items: center; font-size: 22px; flex-shrink: 0; box-shadow: inset 0 2px 5px rgba(0,0,0,0.2); transition: all 0.3s; }
+.wizard-select-card:hover .wizard-icon-box { background: rgba(180,44,255,0.2); border-color: rgba(180,44,255,0.4); transform: scale(1.1) rotate(5deg); }
+
+.wizard-step-anim { animation: wizard-pop 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+@keyframes wizard-pop { 0% { opacity: 0; transform: scale(0.9) translateY(20px) rotateX(-5deg); } 100% { opacity: 1; transform: scale(1) translateY(0) rotateX(0); } }
+
+.wizard-input { width: 100%; padding: 18px 20px; border-radius: 16px; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); color: #fff; font-size: 16px; outline: none; box-shadow: inset 0 2px 8px rgba(0,0,0,0.3); transition: all 0.3s; margin-bottom: 25px; text-align: center; font-weight: 600; letter-spacing: 0.5px;}
+.wizard-input:focus { border-color: #b42cff; box-shadow: inset 0 2px 8px rgba(0,0,0,0.3), 0 0 20px rgba(180,44,255,0.3); transform: translateZ(10px); }
+.wizard-input::placeholder { color: #6f7181; font-weight: 400; }
 
 .toast { position: fixed; right: 24px; top: 24px; z-index: 200; display: flex; align-items: center; gap: 12px; padding: 16px 20px; border: 1px solid rgba(214,135,255,.35); border-radius: 14px; color: #fff; background: rgba(30,15,40,.95); backdrop-filter: blur(10px); box-shadow: 0 15px 40px rgba(0,0,0,.4); animation: toast-in .4s cubic-bezier(0.2,0.8,0.2,1); font-size: 14px; font-weight: 600; }
 
@@ -194,8 +207,6 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator { filter: invert
 /* --- RESPONSIVE MOBILE APP UI --- */
 .mobile-brand { display: none; }
 .mobile-profile-btn { display: none; }
-
-/* FIX: Ensure Nav hides cleanly on Desktop */
 .bottom-nav { display: none !important; }
 
 @media (max-width: 850px) {
@@ -231,6 +242,11 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator { filter: invert
   @keyframes sheet-up { from { transform: translateY(100%); } to { transform: translateY(0); } }
   .form-grid { grid-template-columns: 1fr; }
   .toast { top: auto; bottom: 90px; right: 20px; left: 20px; justify-content: center; animation: modal-pop 0.3s ease; }
+
+  /* Mobile Wizard Adjustments */
+  .wizard-card { padding: 35px 25px; border-radius: 28px; }
+  .wizard-title { font-size: 26px; }
+  .wizard-select-card { padding: 15px 16px; }
 }
 
 .mobile-menu-sheet { display: flex; flex-direction: column; gap: 10px; }
